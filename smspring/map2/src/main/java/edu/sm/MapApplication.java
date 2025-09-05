@@ -3,11 +3,11 @@ package edu.sm;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"edu.sm"})
-public class ShopApplication {
+@SpringBootApplication
+public class MapApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ShopApplication.class, args);
+        SpringApplication.run(MapApplication.class, args);
     }
 
 }

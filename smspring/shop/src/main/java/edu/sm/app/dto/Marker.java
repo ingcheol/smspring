@@ -14,5 +14,7 @@ public class Marker {
     String img;
     double lat;
     double lng;
-    int loc;
+    String loc;
+    String info;
+    double distance;
 }

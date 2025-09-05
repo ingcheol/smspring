@@ -2,24 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.sm.app.repository.MarkerRepository">
+<mapper namespace="edu.sm.app.repository.ShopMarkerRepository">
     <select id="findByLoc" parameterType="Integer" resultType="Marker">
-        SELECT * FROM marker WHERE loc=#{loc}
+        SELECT * FROM map WHERE loc=#{loc}
     </select>
     <select id="select" parameterType="Integer" resultType="Marker">
-        SELECT * FROM marker WHERE target=#{target}
+        SELECT * FROM map WHERE target=#{target}
     </select>
     <select id="selectAll" resultType="Marker">
-        SELECT * FROM marker
+        SELECT * FROM map
     </select>
-    <!--    <insert id="insert" parameterType="Marker">-->
-    <!--        INSERT INTO marker VALUES (#{target},#{title},#{img}, #{lat}, #{lng}, #{loc})-->
-    <!--    </insert>-->
-    <!--    <update id="update" parameterType="Marker">-->
-    <!--        UPDATE marker SET title=#{title},img=#{img}, lat=#{lat}, lng=#{lng}, loc=#{loc} WHERE target=#{target}-->
-    <!--    </update>-->
-    <!--    <delete id="delete" parameterType="Integer">-->
-    <!--        DELETE FROM marker WHERE target=#{target}-->
-    <!--    </delete>-->
+    <insert id="insert" parameterType="edu.sm.app.dto.Marker">
+        INSERT INTO map (target, title, img, lat, lng, loc, info) VALUES (#{target},#{title},#{img}, #{lat}, #{lng}, #{loc}, #{info})
+    </insert>
+    <update id="update" parameterType="edu.sm.app.dto.Marker">
+        UPDATE map SET title=#{title},img=#{img}, lat=#{lat}, lng=#{lng}, loc=#{loc}, info=#{info} WHERE target=#{target}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM map WHERE target=#{target}
+    </delete>
 
 </mapper>

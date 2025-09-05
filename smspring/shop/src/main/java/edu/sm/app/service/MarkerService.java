@@ -1,7 +1,7 @@
 package edu.sm.app.service;
 
 import edu.sm.app.dto.Marker;
-import edu.sm.app.repository.MarkerRepository;
+import edu.sm.app.repository.ShopMarkerRepository;
 import edu.sm.common.frame.SmService;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,36 +14,36 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MarkerService implements SmService<Marker, Integer> {
 
-    final MarkerRepository markerRepository;
+    final ShopMarkerRepository shopMarkerRepository;
 
     @Override
     public void register(Marker marker) throws Exception {
-        markerRepository.insert(marker);
+        shopMarkerRepository.insert(marker);
     }
 
     @Override
     public void modify(Marker marker) throws Exception {
-        markerRepository.update(marker);
+        shopMarkerRepository.update(marker);
     }
 
     @Override
     public void remove(Integer integer) throws Exception {
-        markerRepository.delete(integer);
+        shopMarkerRepository.delete(integer);
     }
 
     @Override
     public List<Marker> get() throws Exception {
-        return markerRepository.selectAll();
+        return shopMarkerRepository.selectAll();
     }
 
         public List<Marker> findByLoc(int loc) throws Exception {
-        return markerRepository.findByLoc(loc);
+        return shopMarkerRepository.findByLoc(loc);
     }
 
 
     @Override
     public Marker get(Integer integer) throws Exception {
-        return markerRepository.select(integer);
+        return shopMarkerRepository.select(integer);
     }
 
 }
